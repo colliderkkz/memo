@@ -1,0 +1,42 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "my-memos",
+  "main": ".svelte-kit/cloudflare/_sveltekit.js",
+  "compatibility_date": "2026-08-01",
+  "compatibility_flags": ["nodejs_compat", "nodejs_als", "global_fetch_strictly_public"],
+  "upload_source_maps": true,
+  "workers_dev": false,
+  "assets": {
+    "directory": ".svelte-kit/cloudflare",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "my-memos",
+      "database_id": "a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "MEMOS_CACHE",
+      "id": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEMOS_BUCKET",
+      "bucket_name": "my-memos"
+    }
+  ],
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true
+    }
+  }
+}

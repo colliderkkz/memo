@@ -1,0 +1,8 @@
+{
+  "extends": "$app/tsconfig",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "types": ["void/env", "$app/types"]
+  },
+  "include": ["src"]
+}

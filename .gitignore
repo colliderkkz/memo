@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+coverage/
+.turbo/
+.svelte-kit/
+.svelte-check/
+.vite/
+
+# Tool caches
+.wrangler/
+.void/
+apps/memos/drizzle/
+.parcel-cache/
+.cache/
+.eslintcache
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Local environment files
+.dev.vars*
+.env*
+
+# Editors and OS files
+.idea/
+.vscode/
+.vscode-test/
+.DS_Store
+
+# Package manager files
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.yarn-integrity
+.pnp.*
+
+# Personal data backups (never commit)
+backups/
