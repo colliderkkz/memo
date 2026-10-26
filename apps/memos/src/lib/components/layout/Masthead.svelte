@@ -5,13 +5,15 @@
   import {
     applyTheme,
     Avatar,
+    Button,
     Popover,
     PopoverContent,
     PopoverTrigger,
     Tooltip,
   } from "@my-memos/ui";
-  import { Home, Heart, Archive, Sun, Moon, Globe, UserRound } from "@lucide/svelte";
+  import { Home, Heart, Archive, Sun, Moon, Globe, UserRound, Pencil } from "@lucide/svelte";
   import { updateQuery } from "#lib/utils/index.ts";
+  import ProfileDialog from "#lib/components/ProfileDialog.svelte";
   import type { MemoStats, TagCount } from "#lib/types.ts";
 
   interface Props {
@@ -31,6 +33,7 @@
 
   let isDark = $state(false);
   let themeBtnEl = $state<HTMLButtonElement | null>(null);
+  let profileOpen = $state(false);
 
   onMount(() => {
     const saved = localStorage.getItem(THEME_KEY);
@@ -151,12 +154,23 @@
                 {page.data.user?.email}
               </p>
             </div>
+            <Button
+              variant="outline"
+              size="sm"
+              class="h-7 w-full"
+              onclick={() => (profileOpen = true)}
+            >
+              <Pencil size={13} />
+              编辑资料
+            </Button>
           </div>
         </PopoverContent>
       </Popover>
     </div>
   </div>
 </header>
+
+<ProfileDialog bind:open={profileOpen} />
 
 <style>
   .masthead-wordmark {

@@ -1,4 +1,5 @@
 export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+export const MAX_AVATAR_BYTES = 5 * 1024 * 1024;
 
 const EXT_BY_CONTENT_TYPE: Record<string, string> = {
   "image/png": "png",

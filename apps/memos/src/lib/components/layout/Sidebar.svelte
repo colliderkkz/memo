@@ -24,7 +24,9 @@
     CalendarDays,
     X,
     UserRound,
+    Pencil,
   } from "@lucide/svelte";
+  import ProfileDialog from "#lib/components/ProfileDialog.svelte";
   import type { TagCount } from "#lib/types.ts";
 
   const NAV_ITEMS = [
@@ -56,6 +58,8 @@
     selectedDate,
     onDateChange,
   }: SidebarProps = $props();
+
+  let profileOpen = $state(false);
 
   function handleDateChange(date: Date) {
     if (
@@ -233,8 +237,19 @@
               {page.data.user?.email}
             </p>
           </div>
+          <Button
+            variant="outline"
+            size="sm"
+            class="h-7 w-full"
+            onclick={() => (profileOpen = true)}
+          >
+            <Pencil size={13} />
+            编辑资料
+          </Button>
         </div>
       </PopoverContent>
     </Popover>
   </div>
 </aside>
+
+<ProfileDialog bind:open={profileOpen} />
